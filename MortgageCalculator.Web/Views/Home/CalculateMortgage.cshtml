@@ -1,0 +1,61 @@
+﻿@model MortgageCalculator.Dto.ViewModels.CalculateMortgageViewModel
+
+@{
+    ViewBag.Title = "CalculateMortgage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Mortgage Calculator</h1>   
+</div>
+
+
+<div>
+    <h4>Summary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanTenure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanTenure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanEMI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanEMI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalInterest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Calculate Again!!!", "Index")
+</p>

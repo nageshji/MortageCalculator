@@ -1,0 +1,63 @@
+﻿@model MortgageCalculator.Dto.Mortgage
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Mortgage Plan Details</h1>
+</div>
+
+
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">   
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectiveStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EffectiveStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectiveEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EffectiveEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CancellationFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CancellationFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstablishmentFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstablishmentFee)
+        </dd>
+      
+    </dl>
+</div>
+<p>   
+    @Html.ActionLink("Back to Plans", "Index")
+</p>

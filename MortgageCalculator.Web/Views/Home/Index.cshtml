@@ -1,0 +1,69 @@
+﻿@model MortgageCalculator.Dto.ViewModels.MortgageViewModel
+
+@{
+    ViewBag.Title = "Mortgage Calculator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Mortgage Calculator</h1>
+    <p class="lead">
+        The Mortgage Calculator helps you:
+        <ul>
+            <li>Choose the right loan for you</li>
+            <li>The Interests and Repayment on your loan</li>
+        </ul>
+    </p>
+</div>
+
+
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-horizontal" action="/Home/CalculateMortgage">
+                <fieldset>
+                    <legend>Mortgage Calculator</legend>                  
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mortgage Type</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.MortgageId, new SelectList(Model.MortgageList, "MortgageId", "Name"), new { @class = "form-control input-md" })
+                            </div>
+                            <span class="help-block col-md-6">Select the Mortage Plan</span>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LoanAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.LoanAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LoanAmount, "", new { @class = "text-danger" })
+                            </div>
+                            <span class="help-block col-md-6">Enter the amount to borrow</span>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LoanTenure, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.LoanTenure, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LoanTenure, "", new { @class = "text-danger" })
+                            </div>
+                            <span class="help-block col-md-6">Enter the tenure in years</span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-6">
+                                <button type="submit" value="Calculate Mortgage" class="form-control input-md btn btn-default">Calculate Mortgage</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
